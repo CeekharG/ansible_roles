@@ -20,19 +20,14 @@
     regexp: '^%tomcat'
     line: '%tomcat ALL=(ALL) NOPASSWD: ALL'
 
-- name: Create multiple users
-  vars:
-    user_name:
-      - name: test1
-        comment: "This is test1 user"
-      - name: test2
-        comment: "This is test2 user"
-      - name: test3
-        comment: "This is test3 user"
-- name: create test user
+
+- name: create multiple test user
   user:
-    name: "{{item.name}}"
-    comment: "{{item.comment}}"
-  loop: "{{user_name}}"
-  #state: absent
+    name: "{{item}}"
+    state: present
+  with_items:
+    - test1
+    - test2
+    - test3
+  
 
