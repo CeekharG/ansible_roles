@@ -1,0 +1,6 @@
+---
+# handlers file for base
+
+handlers:
+  - name: restart system
+    reboot:

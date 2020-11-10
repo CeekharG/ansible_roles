@@ -1,0 +1,16 @@
+---
+# tasks file for base
+- name: 'create multiple users'
+  user:
+    name: "{{user_names}}"
+- name: "updated motd file"
+  template:
+    src: motd
+    dest: /etc/motd
+
+- name: "apply patches"
+  yum:
+    name: '*'
+    state: latest
+  notify:
+  - restart system

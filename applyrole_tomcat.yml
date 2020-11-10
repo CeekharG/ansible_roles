@@ -1,0 +1,8 @@
+---
+
+- name: "applying roles"
+  hosts: amazon
+  become: true
+  roles: 
+    - tomcat
+

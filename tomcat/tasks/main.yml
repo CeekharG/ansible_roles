@@ -1,0 +1,22 @@
+---
+# tasks file for tomcat
+
+- name: 'add group "tomcat"'
+  group: 
+    name: tomcat
+    state: present
+
+- name: 'create a user tomcat in tomcat group'
+  user:
+    name: tomcat
+    group: tomcat
+    update_password: always
+    password: $6$wxi1Nn30vZJ2Wy7a$xJKixBl0tPXCW.jvqMlW4AfjDy1vrfPAwzR8bf/ekSBgMUeDXdobbPIuROG/e4nv.7jPIw6CRKuFhPyggWiEk0
+
+- name: update sudo access to tomcat user
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%tomcat'
+    line: '%tomcat ALL=(ALL) NOPASSWD: ALL'
+
