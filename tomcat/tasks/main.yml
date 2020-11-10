@@ -21,7 +21,6 @@
     line: '%tomcat ALL=(ALL) NOPASSWD: ALL'
 
 - name: Create multiple users
-  hosts: webapp
   become: true
   vars:
     user_name:
@@ -31,11 +30,10 @@
            comment: "This is test2 user"
          - name: test3
            comment: "This is test3 user"
-  tasks:
-    - name: create test user
-      user:
-        name: "{{item.name}}"
-        comment: "{{item.comment}}"
-      loop: "{{user_name}}"
-      #state: absent
+- name: create test user
+  user:
+    name: "{{item.name}}"
+    comment: "{{item.comment}}"
+  loop: "{{user_name}}"
+  #state: absent
 
