@@ -24,12 +24,12 @@
   become: true
   vars:
     user_name:
-         - name: test1
-           comment: "This is test1 user"
-         - name: test2
-           comment: "This is test2 user"
-         - name: test3
-           comment: "This is test3 user"
+      - name: test1
+        comment: "This is test1 user"
+      - name: test2
+        comment: "This is test2 user"
+      - name: test3
+        comment: "This is test3 user"
 - name: create test user
   user:
     name: "{{item.name}}"
