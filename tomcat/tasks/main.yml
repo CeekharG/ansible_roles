@@ -21,7 +21,6 @@
     line: '%tomcat ALL=(ALL) NOPASSWD: ALL'
 
 - name: Create multiple users
-  become: true
   vars:
     user_name:
       - name: test1
