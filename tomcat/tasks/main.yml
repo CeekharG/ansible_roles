@@ -30,8 +30,14 @@
     - test2
     - test3
 
-- name: "start httpd services"
+
+- name: "install httpd services"
   yum:
+    name: httpd
+    state: present
+
+- name: "start httpd services"
+  service:
     name: httpd
     enabled: true
     state: started
@@ -42,5 +48,10 @@
     state: latest
   notify:
   - restart system
+
+- name : "creating index.html page"
+  template: 
+    src: "index.html"
+    dest: "/var/www/html/index.html"
 
 
