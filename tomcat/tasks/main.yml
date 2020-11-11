@@ -29,5 +29,23 @@
     - test1
     - test2
     - test3
+
+- name: "updated motd file"
+  template:
+    src: motd
+    dest: /etc/motd 
+    
+- name: "start httpd services"
+  yum:
+    name: httpd
+    enabled: true
+    state: started
   
+- name: "apply patches"
+  yum:
+    name: '*'
+    state: latest
+  notify:
+  - restart system
+
 

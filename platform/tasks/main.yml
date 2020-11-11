@@ -1,2 +1,6 @@
----
-# tasks file for platform
+- name: check the environment if it is RHEL
+  block:
+    - name: install httpd package
+      yum:
+       name: httpd
+  when: ansible_os_family == "RedHat"
