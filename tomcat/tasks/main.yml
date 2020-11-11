@@ -30,11 +30,6 @@
     - test2
     - test3
 
-- name: "updated motd file"
-  template:
-    src: motd
-    dest: /etc/motd 
-    
 - name: "start httpd services"
   yum:
     name: httpd
