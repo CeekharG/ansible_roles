@@ -1,7 +1,7 @@
 ---
 
 - name: "applying roles"
-  hosts: amazon
+  hosts: webapp
   become: true
   roles: 
     - tomcat
