@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    triggers {
-        pollSCM('* * * * *')
-    }
+    // triggers {
+    //     pollSCM('* * * * *')
+    // }
 
     stages {
 
@@ -12,7 +12,7 @@ pipeline {
                 sh "ansible-playbook applyrole_tomcat.yml --syntax-check"
             }
         }
-        
+
         stage('Ansible_Apply') {
             steps {
                 sshagent(['ec2-user']) {
